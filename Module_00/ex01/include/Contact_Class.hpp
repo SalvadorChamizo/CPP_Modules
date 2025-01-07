@@ -6,7 +6,7 @@
 /*   By: schamizo <schamizo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/27 13:55:24 by schamizo          #+#    #+#             */
-/*   Updated: 2024/11/15 19:44:38 by schamizo         ###   ########.fr       */
+/*   Updated: 2024/12/03 15:20:25 by schamizo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,6 @@
 
 class	Contact {
 
-	/* Class variables*/
 	private:
 		std::string	_first_name;
 		std::string	_last_name;
@@ -42,7 +41,7 @@ class	Contact {
 		int			_phone_number;
 		std::string	_darkest_secret;
 
-	/* Class methods */
+
 	public:
 		Contact(void);
 		~Contact(void);
@@ -56,8 +55,8 @@ class	Contact {
 		void		set_nickname(std::string str);
 		void		set_number(int nbr);
 		void		set_darkest_secret(std::string str);
-		int			is_empty(void);
 		int			display_contact_info(void);
+		int			is_empty(void);
 };
 
 #endif

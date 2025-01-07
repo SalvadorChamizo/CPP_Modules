@@ -15,23 +15,23 @@ SRCS = $(addprefix $(SRCS_DIR), $(addsuffix .cpp, $(FILES)))
 OBJS = $(addprefix $(OBJS_DIR), $(addsuffix .o, $(FILES)))
 
 $(OBJS_DIR)%.o: $(SRCS_DIR)%.cpp
-	$(CC) $(FLAGS) -c $< -o $@
+	@$(CC) $(FLAGS) $(CPP98_FLAG) -c $< -o $@
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	$(CC) $(FLAGS) $(CPP98_FLAG) $(OBJS) -o $(NAME)
+	@$(CC) $(FLAGS) $(CPP98_FLAG) $(OBJS) -o $(NAME)
 	@echo
 	@echo "$(GREEN)CPP Module 01: Ex05 compiled!$(RESET)"
 	@echo
 
 clean:
-	$(RM) $(OBJS)
+	@$(RM) $(OBJS)
 	@echo
 	@echo "$(RED)Cleaning objects. $(RESET)"
 
 fclean: clean
-	$(RM) $(NAME)
+	@$(RM) $(NAME)
 	@echo "$(RED)Cleaning executables. $(RESET)"
 	@echo
 

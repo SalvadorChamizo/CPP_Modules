@@ -6,7 +6,7 @@
 /*   By: schamizo <schamizo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 11:01:29 by schamizo          #+#    #+#             */
-/*   Updated: 2024/12/16 12:52:35 by schamizo         ###   ########.fr       */
+/*   Updated: 2025/01/07 14:19:38 by schamizo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	main(int argc, char **argv)
 	}
 
 	filename = argv[1];
-	infile.open(filename);
+	infile.open(filename.c_str());
 	if (!infile.is_open())
 	{
 		std::cerr << "Error: could not open file \"" << filename << "\".\n";

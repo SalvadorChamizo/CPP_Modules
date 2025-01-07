@@ -6,7 +6,7 @@
 /*   By: schamizo <schamizo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 15:54:31 by schamizo          #+#    #+#             */
-/*   Updated: 2024/12/09 17:13:04 by schamizo         ###   ########.fr       */
+/*   Updated: 2025/01/07 14:57:53 by schamizo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,13 @@
 /* ************************************************************************** */
 
 template <typename T>
-Array<T>::Array(void) : _a(nullptr), _size(0)
+Array<T>::Array(void) : _a(NULL), _size(0)
 {
 	std::cout << "Array: Default constructor called.\n";
 }
 
 template <typename T>
-Array<T>::Array(unsigned int n) : _a(nullptr), _size(n)
+Array<T>::Array(unsigned int n) : _a(NULL), _size(n)
 {
 	std::cout << "Array: Memory Allocation constructor called.\n";
 	if (n > 0)

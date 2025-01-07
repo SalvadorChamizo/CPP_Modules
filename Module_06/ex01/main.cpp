@@ -6,7 +6,7 @@
 /*   By: schamizo <schamizo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 16:11:44 by schamizo          #+#    #+#             */
-/*   Updated: 2024/12/06 16:32:20 by schamizo         ###   ########.fr       */
+/*   Updated: 2025/01/07 14:50:44 by schamizo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int	main(void)
 {
 	Data	data = {30, 40.0f, 24.5, 'p', "hello world"};
-	uintptr_t	raw = Serializer::serialize(&data);
+	unsigned long	raw = Serializer::serialize(&data);
 	Data	*data2 = Serializer::deserialize(raw);
 
 	std::cout << "int data: " << data.intValue << "\n";

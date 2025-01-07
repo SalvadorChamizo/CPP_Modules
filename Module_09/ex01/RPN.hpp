@@ -6,7 +6,7 @@
 /*   By: schamizo <schamizo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 13:56:16 by schamizo          #+#    #+#             */
-/*   Updated: 2024/12/16 16:06:26 by schamizo         ###   ########.fr       */
+/*   Updated: 2025/01/07 14:16:39 by schamizo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,5 +17,6 @@
 # include <string>
 # include <sstream>
 # include <stack>
+# include <cstdlib>
 
 #endif

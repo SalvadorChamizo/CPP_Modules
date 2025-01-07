@@ -6,7 +6,7 @@
 /*   By: schamizo <schamizo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 15:34:59 by schamizo          #+#    #+#             */
-/*   Updated: 2024/12/04 15:35:10 by schamizo         ###   ########.fr       */
+/*   Updated: 2025/01/07 14:43:14 by schamizo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ class	PresidentialPardonForm : public AForm {
 
 	private:
 		const std::string	_target;
-		const int	_gradeSign = 25;
-		const int	_gradeExecute = 5;
+		static const int	_gradeSign = 25;
+		static const int	_gradeExecute = 5;
 
 	public:
 		PresidentialPardonForm();

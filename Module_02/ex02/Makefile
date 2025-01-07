@@ -15,14 +15,14 @@ SRCS = $(addprefix $(SRCS_DIR), $(addsuffix .cpp, $(FILES)))
 OBJS = $(addprefix $(OBJS_DIR), $(addsuffix .o, $(FILES)))
 
 $(OBJS_DIR)%.o: $(SRCS_DIR)%.cpp
-	@$(CC) $(FLAGS) -c $< -o $@
+	@$(CC) $(FLAGS) $(CPP98_FLAG) -c $< -o $@
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
 	@$(CC) $(FLAGS) $(CPP98_FLAG) $(OBJS) -o $(NAME)
 	@echo
-	@echo "$(GREEN)CPP Module 02: Ex00 compiled!$(RESET)"
+	@echo "$(GREEN)CPP Module 02: Ex02 compiled!$(RESET)"
 	@echo
 
 clean:

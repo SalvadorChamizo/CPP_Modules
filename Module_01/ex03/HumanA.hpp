@@ -6,7 +6,7 @@
 /*   By: schamizo <schamizo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 18:39:43 by schamizo          #+#    #+#             */
-/*   Updated: 2024/10/21 15:24:17 by schamizo         ###   ########.fr       */
+/*   Updated: 2024/11/25 12:40:00 by schamizo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,7 @@ class	HumanA {
 
 		HumanA(std::string name, Weapon &weapon);
 		~HumanA(void);
-		
-		void	setWeapon(Weapon &weapon);
+
 		void	attack(void) const;
 };
 

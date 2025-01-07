@@ -6,9 +6,11 @@
 /*   By: schamizo <schamizo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/16 16:53:56 by schamizo          #+#    #+#             */
-/*   Updated: 2024/11/16 17:05:19 by schamizo         ###   ########.fr       */
+/*   Updated: 2024/11/19 17:47:54 by schamizo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#pragma once
 
 #ifndef CLAPTRAP_HPP
 # define CLAPTRAP_HPP
@@ -35,6 +37,9 @@ class ClapTrap {
 		void	attack(const std::string &target);
 		void	takeDamage(unsigned int amount);
 		void	beRepaired(unsigned int amount);
+
+		int		getDamage(void);
+		void	setDamage(unsigned int damage);
 };
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: schamizo <schamizo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 16:53:03 by schamizo          #+#    #+#             */
-/*   Updated: 2024/12/06 18:39:48 by schamizo         ###   ########.fr       */
+/*   Updated: 2025/01/07 14:52:58 by schamizo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 # include <iostream>
 # include <string>
+# include <cstdlib>
+# include <typeinfo>
 
 class	Base {
 

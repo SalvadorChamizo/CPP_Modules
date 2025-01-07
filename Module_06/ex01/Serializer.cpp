@@ -6,7 +6,7 @@
 /*   By: schamizo <schamizo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 16:01:42 by schamizo          #+#    #+#             */
-/*   Updated: 2024/12/06 16:09:34 by schamizo         ###   ########.fr       */
+/*   Updated: 2025/01/07 14:50:19 by schamizo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,12 +48,12 @@ Serializer	&Serializer::operator=(const Serializer &other)
 /*                             Public functions                               */
 /* ************************************************************************** */
 
-uintptr_t	Serializer::serialize(Data *ptr)
+unsigned long	Serializer::serialize(Data *ptr)
 {
-	return (reinterpret_cast<uintptr_t>(ptr));
+	return (reinterpret_cast<unsigned long>(ptr));
 }
 
-Data		*Serializer::deserialize(uintptr_t raw)
+Data		*Serializer::deserialize(unsigned long raw)
 {
 	return (reinterpret_cast<Data *>(raw));
 }

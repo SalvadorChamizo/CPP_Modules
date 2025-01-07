@@ -6,7 +6,7 @@
 /*   By: schamizo <schamizo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 16:07:48 by schamizo          #+#    #+#             */
-/*   Updated: 2024/12/20 19:04:21 by schamizo         ###   ########.fr       */
+/*   Updated: 2025/01/07 13:57:52 by schamizo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -167,12 +167,14 @@ void insertUsingBinarySearch(Container& mainChain, const Container& indexList, c
 template <typename Container>
 Container mergeInsertionSort(Container &elements)
 {
+
+	/* Step 1: Group the elements of "elements" into [n/2] pairs of elements */
 	if (elements.size() <= 1)
 	{
 		return elements;
 	}
 
-	int odd = -1;
+	int odd = -1; // If the number of elements is odd, save the last number for later
 	if (elements.size() % 2 != 0)
 	{
 		odd = elements.back();
@@ -186,6 +188,7 @@ Container mergeInsertionSort(Container &elements)
 		typename Container::const_iterator next = it;
 		++next;
 
+		/* Step 2: Determine the larger of the two elements in each pair */
 		if (next != elements.end())
 		{
 			if (*it > *next)
@@ -201,8 +204,10 @@ Container mergeInsertionSort(Container &elements)
 		++it; // Move to the next element
 	}
 
+	/* Step 3: Recursively sort the [n/2] larger elements in each pair */
 	recursivePairsSort(pairs, pairs.size());
 
+	/* Step 4: Create the main chain and pend */
 	Container main_chain;
 	Container pend;
 	for (std::vector<std::pair<int, int> >::iterator it = pairs.begin(); it != pairs.end(); ++it)
@@ -212,12 +217,15 @@ Container mergeInsertionSort(Container &elements)
 	}
 	main_chain.insert(main_chain.begin(), pend.front());
 
+	/* Step 5: Generate the order of insertion using the jacobsthal sequence */
 	Container	jacobsthalSequence = generateJacobsthalSequence(pend);
 
 	Container	insertionList = generateIndexInsertionList(jacobsthalSequence, pend);
 
+	/* Step 6: Insert the elements of the pend into the main chain using binary search to determine the position of each element */
 	insertUsingBinarySearch(main_chain, insertionList, pend);
 
+	/* Step 7: Insert the odd number */
 	if (odd != -1)
 	{
 		typename Container::iterator insertPosition = std::lower_bound(main_chain.begin(), main_chain.end(), odd);
@@ -225,6 +233,33 @@ Container mergeInsertionSort(Container &elements)
 	}
 
 	return (main_chain);
+}
+
+template <typename Container>
+void	printTime(Container &container, int flag, std::string name)
+{
+	struct timeval start, end;
+	Container sorted;
+
+	gettimeofday(&start, NULL);
+
+	sorted = mergeInsertionSort(container);
+		
+	gettimeofday(&end, NULL);
+
+	if (flag == 1)
+	{
+		std::cout << "After: ";
+		for (typename Container::iterator it = sorted.begin(); it != sorted.end(); ++it)
+		{
+			std::cout << *it << " ";
+		}
+		std::cout << "\n\n";
+	}
+	long seconds = (end.tv_sec - start.tv_sec) * 1000000.0;
+	long microseconds = end.tv_usec - start.tv_usec;
+	long time = seconds + microseconds;
+	std::cout << "Time to process a range of " << container.size() << " elements with std::" << name << ": " << time << " us\n";
 }
 
 int	main(int argc, char **argv)
@@ -254,52 +289,15 @@ int	main(int argc, char **argv)
 			deque.push_back(nb);
 		}
 
-		struct timeval start, end;
-
 		std::cout << "Before: ";
 		for (std::vector<int>::iterator it = vector.begin(); it != vector.end(); ++it)
 		{
 			std::cout << *it << " ";
 		}
-		std::cout << "\n\n";
-		gettimeofday(&start, NULL);
-
-		sorted = mergeInsertionSort(vector);
-		gettimeofday(&end, NULL);
-
-		std::cout << "After: ";
-		for (std::vector<int>::iterator it = sorted.begin(); it != sorted.end(); ++it)
-		{
-			std::cout << *it << " ";
-		}
-		std::cout << "\n\n";
-
-		long seconds = (end.tv_sec - start.tv_sec) * 1000000.0;
-		long microseconds = end.tv_usec - start.tv_usec;
-		long time = seconds + microseconds;
-		std::cout << "Time taken by vector: " << time << " microseconds" << std::endl;
-		
-		gettimeofday(&start, NULL);
-
-		sorted_list = mergeInsertionSort(list);
-		
-		gettimeofday(&end, NULL);
-
-		seconds = (end.tv_sec - start.tv_sec) * 1000000.0;
-		microseconds = end.tv_usec - start.tv_usec;
-		time = seconds + microseconds;
-		std::cout << "Time taken by list: " << time << " microseconds" << std::endl;
-
-		gettimeofday(&start, NULL);
-
-		sorted_deque = mergeInsertionSort(deque);
-		
-		gettimeofday(&end, NULL);
-
-		seconds = (end.tv_sec - start.tv_sec) * 1000000.0;
-		microseconds = end.tv_usec - start.tv_usec;
-		time = seconds + microseconds;
-		std::cout << "Time taken by deque: " << time << " microseconds" << std::endl;
+		std::cout << "\n";
+		printTime(vector, 1, "vector");
+		printTime(list, 0, "list");
+		printTime(deque, 0, "deque");
 	}
 	catch (std::exception &e)
 	{

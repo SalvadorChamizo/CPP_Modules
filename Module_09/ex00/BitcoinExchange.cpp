@@ -6,7 +6,7 @@
 /*   By: schamizo <schamizo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 18:18:51 by schamizo          #+#    #+#             */
-/*   Updated: 2024/12/17 14:58:28 by schamizo         ###   ########.fr       */
+/*   Updated: 2025/01/07 14:34:31 by schamizo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,10 @@ void	compareMapWithInputFile(std::ifstream &infile, std::map<std::string, double
 		if (it != btc.begin() && it->first > date)
 			--it;
 		
-		std::cout << ft_strtrim(date) << " => " << value << " = " << it->second * atof(value.c_str()) << "\n";
+        std::stringstream ss;
+        ss << std::setprecision(10) << it->second * atof(value.c_str());
+        std::string formattedResult = ss.str();
+		std::cout << ft_strtrim(date) << " => " << value << " = " << formattedResult << "\n";
 	}
 }
 

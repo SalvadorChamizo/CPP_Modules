@@ -6,7 +6,7 @@
 /*   By: schamizo <schamizo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 17:59:41 by schamizo          #+#    #+#             */
-/*   Updated: 2024/11/28 14:59:18 by schamizo         ###   ########.fr       */
+/*   Updated: 2025/01/07 15:25:06 by schamizo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ MateriaSource::MateriaSource()
 {
 	std::cout << "MateriaSource default constructor called.\n";
 	for	(int i = 0; i < 4; i++)
-		this->_materias[i] = nullptr;
+		this->_materias[i] = NULL;
 }
 
 MateriaSource::MateriaSource(const MateriaSource &other)

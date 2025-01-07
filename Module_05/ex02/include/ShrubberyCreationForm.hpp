@@ -6,7 +6,7 @@
 /*   By: schamizo <schamizo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 16:31:03 by schamizo          #+#    #+#             */
-/*   Updated: 2024/12/04 14:43:33 by schamizo         ###   ########.fr       */
+/*   Updated: 2025/01/07 14:39:23 by schamizo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@ class	ShrubberyCreationForm : public AForm {
 
 	private:
 		const std::string	_target;
-		const int	_gradeSign = 145;
-		const int	_gradeExecute = 137;
+		static const int	_gradeSign = 145;
+		static const int	_gradeExecute = 137;
 
 	public:
 		ShrubberyCreationForm();

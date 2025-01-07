@@ -6,7 +6,7 @@
 /*   By: schamizo <schamizo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 17:23:18 by schamizo          #+#    #+#             */
-/*   Updated: 2024/12/06 12:35:17 by schamizo         ###   ########.fr       */
+/*   Updated: 2025/01/07 14:45:59 by schamizo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <iostream>
 # include <string>
 # include <limits.h>
+# include <cstdlib>
 
 class	ScalarConverter {
 

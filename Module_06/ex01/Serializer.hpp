@@ -6,7 +6,7 @@
 /*   By: schamizo <schamizo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 15:45:44 by schamizo          #+#    #+#             */
-/*   Updated: 2024/12/06 16:07:11 by schamizo         ###   ########.fr       */
+/*   Updated: 2025/01/07 14:50:26 by schamizo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,8 @@ class	Serializer {
 		Serializer	&operator=(const Serializer &other);
 		
 	public:
-		static uintptr_t	serialize(Data *ptr);
-		static Data			*deserialize(uintptr_t raw);
+		static unsigned long	serialize(Data *ptr);
+		static Data			*deserialize(unsigned long raw);
 
 };
 

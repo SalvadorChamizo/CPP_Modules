@@ -6,7 +6,7 @@
 /*   By: schamizo <schamizo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 18:36:58 by schamizo          #+#    #+#             */
-/*   Updated: 2024/12/04 14:44:37 by schamizo         ###   ########.fr       */
+/*   Updated: 2025/01/07 14:39:48 by schamizo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ class	RobotomyRequestForm : public AForm {
 
 	private:
 		const std::string	_target;
-		const int	_gradeSign = 72;
-		const int	_gradeExecute = 45;
+		static const int	_gradeSign = 72;
+		static const int	_gradeExecute = 45;
 
 	public:
 		RobotomyRequestForm();
