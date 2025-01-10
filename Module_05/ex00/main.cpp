@@ -6,7 +6,7 @@
 /*   By: schamizo <schamizo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/29 18:30:30 by schamizo          #+#    #+#             */
-/*   Updated: 2024/12/03 13:03:18 by schamizo         ###   ########.fr       */
+/*   Updated: 2025/01/10 12:44:17 by schamizo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ void	incrementGradeTest(Bureaucrat Test)
 	try
 	{
 		std::cout << "\n";
+		std::cout << Test;
 		Test.incrementGrade();
 		Test.incrementGrade();
 		std::cout << Test;

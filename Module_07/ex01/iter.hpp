@@ -6,7 +6,7 @@
 /*   By: schamizo <schamizo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 13:53:44 by schamizo          #+#    #+#             */
-/*   Updated: 2025/01/07 14:56:19 by schamizo         ###   ########.fr       */
+/*   Updated: 2025/01/08 15:43:15 by schamizo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define ITER_HPP
 
 # include <iostream>
-//# include <array>
 
 /* This function call needs to specify the type received 
 by the function passed by parameter. Example: "iter(array, 4, print<int>);" */

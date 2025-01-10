@@ -6,7 +6,7 @@
 /*   By: schamizo <schamizo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 15:34:46 by schamizo          #+#    #+#             */
-/*   Updated: 2024/12/04 15:34:48 by schamizo         ###   ########.fr       */
+/*   Updated: 2025/01/10 12:47:13 by schamizo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ class	Bureaucrat {
 		~Bureaucrat();
 
 		Bureaucrat	&operator=(const Bureaucrat &other);
-		friend std::ostream &operator<<(std::ostream &out, const Bureaucrat &bu);
 
 		std::string	getName(void) const;
 		int			getGrade(void) const;
@@ -53,5 +52,7 @@ class	Bureaucrat {
 				virtual const char *what() const throw();
 		};
 };
+
+std::ostream &operator<<(std::ostream &out, const Bureaucrat &bu);
 
 #endif

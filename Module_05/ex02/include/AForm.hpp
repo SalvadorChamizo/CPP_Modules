@@ -6,7 +6,7 @@
 /*   By: schamizo <schamizo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 16:11:56 by schamizo          #+#    #+#             */
-/*   Updated: 2024/12/03 19:40:39 by schamizo         ###   ########.fr       */
+/*   Updated: 2025/01/10 12:45:56 by schamizo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,6 @@ class	AForm {
 		virtual ~AForm();
 
 		AForm &operator=(const AForm &other);
-		friend std::ostream &operator<<(std::ostream &out, const AForm &f);
 
 		std::string		getName(void) const;
 		bool			getSigned(void) const;
@@ -62,5 +61,7 @@ class	AForm {
 				virtual const char *what() const throw();
 		};
 };
+
+std::ostream &operator<<(std::ostream &out, const AForm &f);
 
 #endif

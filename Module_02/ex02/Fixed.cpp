@@ -6,7 +6,7 @@
 /*   By: schamizo <schamizo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 17:42:32 by schamizo          #+#    #+#             */
-/*   Updated: 2024/11/15 19:24:41 by schamizo         ###   ########.fr       */
+/*   Updated: 2025/01/10 12:57:52 by schamizo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,32 +70,32 @@ std::ostream &operator<<(std::ostream &out, const Fixed &fixed)
 
 bool	operator==(const Fixed &fixed1, const Fixed &fixed2)
 {
-	return (fixed1.fixed_point == fixed2.fixed_point);
+	return (fixed1.getRawBits() == fixed2.getRawBits());
 }
 
 bool	operator!=(const Fixed &fixed1, const Fixed &fixed2)
 {
-	return (fixed1.fixed_point != fixed2.fixed_point);
+	return (fixed1.getRawBits() != fixed2.getRawBits());
 }
 
 bool	operator<(const Fixed &fixed1, const Fixed &fixed2)
 {
-	return (fixed1.fixed_point < fixed2.fixed_point);
+	return (fixed1.getRawBits() < fixed2.getRawBits());
 }
 
 bool	operator>(const Fixed &fixed1, const Fixed &fixed2)
 {
-	return (fixed1.fixed_point > fixed2.fixed_point);
+	return (fixed1.getRawBits() > fixed2.getRawBits());
 }
 
 bool	operator<=(const Fixed &fixed1, const Fixed &fixed2)
 {
-	return (fixed1.fixed_point <= fixed2.fixed_point);
+	return (fixed1.getRawBits() <= fixed2.getRawBits());
 }
 
 bool	operator>=(const Fixed &fixed1, const Fixed &fixed2)
 {
-	return (fixed1.fixed_point >= fixed2.fixed_point);
+	return (fixed1.getRawBits() >= fixed2.getRawBits());
 }
 
 /* Arithmetic operator */

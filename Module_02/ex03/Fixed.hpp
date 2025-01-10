@@ -6,7 +6,7 @@
 /*   By: schamizo <schamizo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 19:27:57 by schamizo          #+#    #+#             */
-/*   Updated: 2024/11/15 19:29:11 by schamizo         ###   ########.fr       */
+/*   Updated: 2025/01/10 12:59:52 by schamizo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,21 +30,6 @@ class	Fixed {
 		~Fixed();
 
 		Fixed& operator=(const Fixed &fixed);
-		friend std::ostream &operator<<(std::ostream &out, const Fixed &fixed);
-
-		friend	bool operator==(const Fixed &fixed1, const Fixed &fixed2);
-		friend	bool operator!=(const Fixed &fixed1, const Fixed &fixed2);
-
-		friend	bool operator<(const Fixed &fixed1, const Fixed &fixed2);
-		friend	bool operator>(const Fixed &fixed1, const Fixed &fixed2);
-
-		friend	bool operator<=(const Fixed &fixed1, const Fixed &fixed2);
-		friend	bool operator>=(const Fixed &fixed1, const Fixed &fixed2);
-
-		friend Fixed operator+(const Fixed &fixed1, const Fixed &fixed2);
-		friend Fixed operator-(const Fixed &fixed1, const Fixed &fixed2);
-		friend Fixed operator*(const Fixed &fixed1, const Fixed &fixed2);
-		friend Fixed operator/(const Fixed &fixed1, const Fixed &fixed2);
 
 		Fixed& operator++(void);
 		Fixed& operator--(void);
@@ -63,5 +48,21 @@ class	Fixed {
 		static Fixed &max(Fixed& num1, Fixed& num2);
 		static const Fixed &max(const Fixed& num1, const Fixed& num2);
 };
+
+std::ostream &operator<<(std::ostream &out, const Fixed &fixed);
+
+bool operator==(const Fixed &fixed1, const Fixed &fixed2);
+bool operator!=(const Fixed &fixed1, const Fixed &fixed2);
+
+bool operator<(const Fixed &fixed1, const Fixed &fixed2);
+bool operator>(const Fixed &fixed1, const Fixed &fixed2);
+
+bool operator<=(const Fixed &fixed1, const Fixed &fixed2);
+bool operator>=(const Fixed &fixed1, const Fixed &fixed2);
+
+Fixed operator+(const Fixed &fixed1, const Fixed &fixed2);
+Fixed operator-(const Fixed &fixed1, const Fixed &fixed2);
+Fixed operator*(const Fixed &fixed1, const Fixed &fixed2);
+Fixed operator/(const Fixed &fixed1, const Fixed &fixed2);
 
 #endif

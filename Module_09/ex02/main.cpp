@@ -6,7 +6,7 @@
 /*   By: schamizo <schamizo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 16:07:48 by schamizo          #+#    #+#             */
-/*   Updated: 2025/01/07 13:57:52 by schamizo         ###   ########.fr       */
+/*   Updated: 2025/01/08 15:41:33 by schamizo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -265,11 +265,8 @@ void	printTime(Container &container, int flag, std::string name)
 int	main(int argc, char **argv)
 {
 	std::vector<int> vector;
-	std::vector<int> sorted;
 	std::list<int> list;
-	std::list<int> sorted_list;
 	std::deque<int> deque;
-	std::deque<int> sorted_deque;
 	int	nb;
 
 	try
