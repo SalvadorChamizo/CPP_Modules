@@ -6,7 +6,7 @@
 /*   By: schamizo <schamizo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 15:34:53 by schamizo          #+#    #+#             */
-/*   Updated: 2024/12/04 16:53:44 by schamizo         ###   ########.fr       */
+/*   Updated: 2025/01/11 17:52:55 by schamizo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,11 @@ class	Intern {
 		Intern	&operator=(const Intern &other);
 
 		AForm	*makeForm(std::string formName, std::string formTarget);
+
+		class	MakeFormFailedException : public std::exception {
+			public:
+				virtual const char *what() const throw();
+		};
 };
 
 typedef	AForm* (Intern::*forms)(std::string target);

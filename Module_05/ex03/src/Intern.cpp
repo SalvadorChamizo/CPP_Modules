@@ -6,7 +6,7 @@
 /*   By: schamizo <schamizo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 15:39:26 by schamizo          #+#    #+#             */
-/*   Updated: 2024/12/04 16:55:15 by schamizo         ###   ########.fr       */
+/*   Updated: 2025/01/11 17:54:20 by schamizo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,12 @@ AForm	*Intern::makeForm(std::string formName, std::string formTarget)
 	if (i == 3)
 	{
 		std::cerr << "Error: There is not form for name " << formName << ".\n";
+		throw MakeFormFailedException();
 	}
 	return (formToCreate);
+}
+
+const char *Intern::MakeFormFailedException::what(void) const throw()
+{
+	return ("Failed creating the form.");
 }

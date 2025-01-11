@@ -6,7 +6,7 @@
 /*   By: schamizo <schamizo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 16:45:34 by schamizo          #+#    #+#             */
-/*   Updated: 2024/12/04 17:13:32 by schamizo         ###   ########.fr       */
+/*   Updated: 2025/01/11 18:15:37 by schamizo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,38 +23,48 @@ int	main(void)
 	Bureaucrat	Anselmo("Anselmo", 2);
 	Bureaucrat	Manolo("Manolo", 46);
 	Intern	someIntern;
-	AForm	*rrf;
-	AForm	*scf;
-	AForm	*ppf;
+	AForm	*rrf = NULL;
+	AForm	*scf = NULL;
+	AForm	*ppf = NULL;
 
-	std::cout << "\n****    RobotomyRequestForm Test    ****\n\n";
+	try
+	{
+		std::cout << "\n****    RobotomyRequestForm Test    ****\n\n";
 
-	rrf = someIntern.makeForm("robotomy request", "Bender");
-	std::cout << *rrf << "\n";
-	Anselmo.signForm(*rrf);
-	Anselmo.executeForm(*rrf);
+		rrf = someIntern.makeForm("robotomy request", "Bender");
+		std::cout << *rrf << "\n";
+		Anselmo.signForm(*rrf);
+		Anselmo.executeForm(*rrf);
 
-	std::cout << "\n****    ShrubberyCreatoonForm Test    ****\n\n";
+		std::cout << "\n****    ShrubberyCreatoonForm Test    ****\n\n";
 
-	scf = someIntern.makeForm("shrubbery creation", "Tree");
-	std::cout << *scf << "\n";
-	Manolo.executeForm(*scf);
-	Manolo.signForm(*scf);
-	Manolo.executeForm(*scf);
+		scf = someIntern.makeForm("shrubbery creation", "Tree");
+		std::cout << *scf << "\n";
+		Manolo.executeForm(*scf);
+		Manolo.signForm(*scf);
+		Manolo.executeForm(*scf);
 
-	std::cout << "\n****    PresidentialPardonForm Test    ****\n\n";
+		std::cout << "\n****    PresidentialPardonForm Test    ****\n\n";
 
-	ppf = someIntern.makeForm("presidential pardon", "Nicolas Cage");
-	std::cout << *ppf << "\n";
-	Manolo.signForm(*ppf);
-	Manolo.executeForm(*ppf);
-	Anselmo.executeForm(*ppf);
-	Anselmo.signForm(*ppf);
-	Anselmo.executeForm(*ppf);
+		ppf = someIntern.makeForm("presidential pardon", "Nicolas Cage");
+		std::cout << *ppf << "\n";
+		Manolo.signForm(*ppf);
+		Manolo.executeForm(*ppf);
+		Anselmo.executeForm(*ppf);
+		Anselmo.signForm(*ppf);
+		Anselmo.executeForm(*ppf);
 
-	std::cout << "\n";
-	delete rrf;
-	delete scf;
-	delete ppf;
+		std::cout << "\n";
+	}
+	catch (Intern::MakeFormFailedException &e)
+	{
+		std::cout << "Error: " << e.what() << "\n";
+	}
+	if (rrf)
+		delete rrf;
+	if (scf)
+		delete scf;
+	if (ppf)
+		delete ppf;
 	return (0);
 }
