@@ -6,15 +6,67 @@
 /*   By: schamizo <schamizo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 16:57:45 by schamizo          #+#    #+#             */
-/*   Updated: 2024/12/09 17:18:42 by schamizo         ###   ########.fr       */
+/*   Updated: 2025/02/18 12:45:23 by schamizo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Array.hpp"
 #include "Array.tpp"
 #include <string>
+#include <cstdlib>
 
-int	main(void)
+#define MAX_VAL 750
+int main(int, char**)
+{
+    Array<int> numbers(MAX_VAL);
+    int* mirror = new int[MAX_VAL];
+    srand(time(NULL));
+    for (int i = 0; i < MAX_VAL; i++)
+    {
+        const int value = rand();
+        numbers[i] = value;
+        mirror[i] = value;
+    }
+    //SCOPE
+    {
+        Array<int> tmp = numbers;
+        Array<int> test(tmp);
+    }
+
+    for (int i = 0; i < MAX_VAL; i++)
+    {
+        if (mirror[i] != numbers[i])
+        {
+            std::cerr << "didn't save the same value!!" << std::endl;
+            return 1;
+        }
+    }
+    try
+    {
+        numbers[-2] = 0;
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+    }
+    try
+    {
+        numbers[MAX_VAL] = 0;
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+    }
+
+    for (int i = 0; i < MAX_VAL; i++)
+    {
+        numbers[i] = rand();
+    }
+    delete [] mirror;//
+    return 0;
+}
+
+/*int	main(void)
 {
 	int i = 0;
 	double k = 1.1;
@@ -62,4 +114,4 @@ int	main(void)
 	std::cout << "\n";
 	
 	return (0);
-}
+}*/

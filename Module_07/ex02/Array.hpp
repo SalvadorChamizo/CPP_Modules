@@ -6,7 +6,7 @@
 /*   By: schamizo <schamizo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 16:01:23 by schamizo          #+#    #+#             */
-/*   Updated: 2024/12/09 16:43:25 by schamizo         ###   ########.fr       */
+/*   Updated: 2025/02/18 11:40:59 by schamizo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ template <typename T>
 class	Array {
 	private:
 		T				*_a;
-		unsigned int	_size;
+		size_t	_size;
 
 	public:
 		Array();

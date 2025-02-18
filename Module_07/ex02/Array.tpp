@@ -6,7 +6,7 @@
 /*   By: schamizo <schamizo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 15:54:31 by schamizo          #+#    #+#             */
-/*   Updated: 2025/01/07 14:57:53 by schamizo         ###   ########.fr       */
+/*   Updated: 2025/02/18 12:45:26 by schamizo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ template <typename T>
 Array<T>::Array(unsigned int n) : _a(NULL), _size(n)
 {
 	std::cout << "Array: Memory Allocation constructor called.\n";
+	if (n == 0)
+		throw std::out_of_range("Invalid size\n");
 	if (n > 0)
 	{
 		this->_a = new T[n]();
@@ -36,7 +38,7 @@ Array<T>::Array(unsigned int n) : _a(NULL), _size(n)
 }
 
 template <typename T>
-Array<T>::Array(const Array &other)
+Array<T>::Array(const Array &other) : _a(NULL), _size(0)
 {
 	std::cout << "Array: Copy constructor called.\n";
 	*this = other;
@@ -58,18 +60,28 @@ template <typename T>
 Array<T>	&Array<T>::operator=(const Array &other)
 {
 	if (this == &other)
-		return (this);
+		return (*this);
 
 	if (this->_size > 0)
-		delete [] this->_a;
+	{
+		if (this->_a != NULL)
+		{
+			delete [] this->_a;
+		}
+	}
 
 	this->_size = other._size;
-	this->_a = new T[this->_size];
+	if (this->_size > 0)
+	{
+		this->_a = new T[this->_size];
+	
+		for (size_t i = 0; i < this->_size; i++)
+			this->_a[i] = other._a[i];
+	}
+	else
+		this->_a = NULL;
 
-	for (int i = 0; i < this->_size; i++)
-		this->_a[i] = other._a[i];
-
-	return (this);
+	return (*this);
 }
 
 template <typename T>
