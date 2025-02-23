@@ -6,7 +6,7 @@
 /*   By: schamizo <schamizo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 11:43:32 by schamizo          #+#    #+#             */
-/*   Updated: 2024/12/10 15:22:00 by schamizo         ###   ########.fr       */
+/*   Updated: 2025/02/21 11:59:33 by schamizo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <iostream>
 # include <algorithm>
 # include <vector>
+# include <numeric>
 
 class	Span {
 	private:

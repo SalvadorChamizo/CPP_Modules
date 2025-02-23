@@ -6,7 +6,7 @@
 /*   By: schamizo <schamizo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 15:20:59 by schamizo          #+#    #+#             */
-/*   Updated: 2024/12/13 11:47:02 by schamizo         ###   ########.fr       */
+/*   Updated: 2025/02/21 12:19:47 by schamizo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,15 +22,11 @@ void    testSpanAnySize(unsigned int N)
 
 		std::cout << "\n";
 		std::cout << "Given size: " << N << "\n";
-		std::cout << "Shortest number: " << sp.shortestSpan() << std::endl;
-		std::cout << "Longest number: " << sp.longestSpan() << std::endl;
+		std::cout << "Shortest span: " << sp.shortestSpan() << std::endl;
+		std::cout << "Longest span: " << sp.longestSpan() << std::endl;
 		std::cout << "\n";
 	}
-	catch (std::out_of_range &e)
-	{
-		std::cerr << "Exception: " << e.what() << "\n";
-	}
-	catch (Span::VectorTooSmall &e)
+	catch (std::exception &e)
 	{
 		std::cerr << "Exception: " << e.what() << "\n";
 	}
@@ -39,6 +35,16 @@ void    testSpanAnySize(unsigned int N)
 int main()
 {
 	std::srand(time(0));
+
+	Span sp = Span(5);
+
+	sp.addNumber(20);
+	sp.addNumber(18);
+	sp.addNumber(1);
+	sp.addNumber(5);
+	sp.addNumber(10);
+	std::cout << "Shortest span: " << sp.shortestSpan() << std::endl;
+	std::cout << "Longest span: " << sp.longestSpan() << std::endl;
 
 	testSpanAnySize(10);
 	testSpanAnySize(100);

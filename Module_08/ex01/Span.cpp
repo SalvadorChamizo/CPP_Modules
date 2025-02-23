@@ -6,7 +6,7 @@
 /*   By: schamizo <schamizo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 12:20:14 by schamizo          #+#    #+#             */
-/*   Updated: 2024/12/10 15:32:34 by schamizo         ###   ########.fr       */
+/*   Updated: 2025/02/21 12:13:07 by schamizo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,18 +73,26 @@ int		Span::shortestSpan(void)
 
 	if (this->_vector.size() == 0 || this->_vector.size() == 1)
 		throw Span::VectorTooSmall();
-	i = std::min_element(this->_vector.begin(), this->_vector.end());
+
+	std::vector<int> diff(this->_vector.size());
+	std::vector<int> copy(this->_vector);
+
+	std::sort(copy.begin(), copy.end());
+	std::adjacent_difference(copy.begin(), copy.end(), diff.begin());
+	i = std::min_element(diff.begin() + 1, diff.end());
 	return (*i);
 }
 
 int		Span::longestSpan(void)
 {
-	std::vector<int>::iterator	i;
+	std::vector<int>::iterator	max;
+	std::vector<int>::iterator	min;
 
 	if (this->_vector.size() == 0 || this->_vector.size() == 1)
 		throw Span::VectorTooSmall();
-	i = std::max_element(this->_vector.begin(), this->_vector.end());
-	return (*i);
+	max = std::max_element(this->_vector.begin(), this->_vector.end());
+	min = std::min_element(this->_vector.begin(), this->_vector.end());
+	return (*max - *min);
 }
 
 const char	*Span::VectorTooSmall::what(void) const throw()

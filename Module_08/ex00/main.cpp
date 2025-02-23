@@ -6,14 +6,11 @@
 /*   By: schamizo <schamizo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 18:45:00 by schamizo          #+#    #+#             */
-/*   Updated: 2025/01/07 15:06:02 by schamizo         ###   ########.fr       */
+/*   Updated: 2025/02/20 15:00:24 by schamizo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "easyfind.hpp"
-#include <vector>
-#include <list>
-#include <iostream>
+#include "easyfind.tpp"
 
 int	main(void)
 {
