@@ -6,7 +6,7 @@
 /*   By: schamizo <schamizo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 16:07:48 by schamizo          #+#    #+#             */
-/*   Updated: 2025/01/08 15:41:33 by schamizo         ###   ########.fr       */
+/*   Updated: 2025/02/23 17:27:11 by schamizo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,7 +104,7 @@ Container generateIndexInsertionList(Container &js_lst, Container &pend)
 		++next_iter;
 		if (next_iter == js_lst.end())
 		{
-			for (size_t i = current_js + 1; i <= pend.size(); ++i) // Remaining indexes
+			for (size_t i = current_js; i <= pend.size() - 1; ++i) // Remaining indexes
 				final_sequence.push_back(i);
 		}
 		return (final_sequence);
@@ -182,10 +182,10 @@ Container mergeInsertionSort(Container &elements)
 	}
 
 	std::vector<std::pair<int, int> > pairs;
-	typename Container::const_iterator it = elements.begin();
+	typename Container::iterator it = elements.begin();
 	while (it != elements.end())
 	{
-		typename Container::const_iterator next = it;
+		typename Container::iterator next = it;
 		++next;
 
 		/* Step 2: Determine the larger of the two elements in each pair */
@@ -267,7 +267,8 @@ int	main(int argc, char **argv)
 	std::vector<int> vector;
 	std::list<int> list;
 	std::deque<int> deque;
-	int	nb;
+	long	nb;
+	char *endptr;
 
 	try
 	{
@@ -278,9 +279,11 @@ int	main(int argc, char **argv)
 				if (!isdigit(argv[i][j]) && argv[i][j] != '+' && argv[i][j] != '-')
 					throw std::invalid_argument("Invalid character.\n");
 			}
-			nb = atoi(argv[i]);
+			nb = strtol(argv[i], &endptr, 10);
 			if (nb < 0)
 				throw std::invalid_argument("Numbers must be positive.\n");
+			if (nb > std::numeric_limits<int>::max())
+				throw std::invalid_argument("Out of range. Invalid integer value.\n");
 			vector.push_back(nb);
 			list.push_back(nb);
 			deque.push_back(nb);
@@ -293,8 +296,8 @@ int	main(int argc, char **argv)
 		}
 		std::cout << "\n";
 		printTime(vector, 1, "vector");
-		printTime(list, 0, "list");
-		printTime(deque, 0, "deque");
+		printTime(list, 2, "list");
+		printTime(deque, 3, "deque");
 	}
 	catch (std::exception &e)
 	{

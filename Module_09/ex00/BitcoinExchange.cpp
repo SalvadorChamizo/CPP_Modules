@@ -6,7 +6,7 @@
 /*   By: schamizo <schamizo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 18:18:51 by schamizo          #+#    #+#             */
-/*   Updated: 2025/01/07 14:34:31 by schamizo         ###   ########.fr       */
+/*   Updated: 2025/02/23 19:11:19 by schamizo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,7 @@ void	compareMapWithInputFile(std::ifstream &infile, std::map<std::string, double
         std::string formattedResult = ss.str();
 		std::cout << ft_strtrim(date) << " => " << value << " = " << formattedResult << "\n";
 	}
+
 }
 
 /* ************************************************************************** */
@@ -139,7 +140,11 @@ bool	checkYearMonthAndDay(int year, int month, int day)
 bool	checkCorrectDate(std::string date)
 {
 	if (!checkDateFormat(date))
+	{
+		if (date != "date")
+			std::cout << "Error: invalid format => " << date << "\n";
 		return (false);
+	}
 
 	std::string	year = date.substr(0, 4);
 	std::string	month = date.substr(5, 2);
@@ -155,12 +160,33 @@ bool	checkCorrectDate(std::string date)
 
 bool	checkCorrectValue(std::string valueString)
 {
+	int dot_count = 0;
+	int minus_count = 0;
+
 	if (valueString.empty())
 	{
 		std::cout << "Error: bad input.\n";
 		return (false);
 	}
 	
+	for (size_t i = 0; i < valueString.size(); i++)
+	{
+		if (!isdigit(valueString[i]) && valueString[i] != '.' && valueString[i] != '-')
+		{
+			std::cout << "Error: invalid format => " << valueString << "\n";
+			return (false);
+		}
+		if (valueString[i] == '.')
+			dot_count++;
+		if (valueString[i] == '-')
+			minus_count++;
+		if (dot_count > 1 || minus_count > 1)
+		{
+			std::cout << "Error: invalid format => " << valueString << "\n";
+			return (false);
+		}
+	}
+
 	long double	value = atof(valueString.c_str());
 	if (value < 0)
 	{

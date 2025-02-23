@@ -6,7 +6,7 @@
 /*   By: schamizo <schamizo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 11:01:29 by schamizo          #+#    #+#             */
-/*   Updated: 2025/01/07 14:19:38 by schamizo         ###   ########.fr       */
+/*   Updated: 2025/02/23 16:00:02 by schamizo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,10 +37,13 @@ int	main(int argc, char **argv)
 		infileDataBase.close();
 		return (1);
 	}
-
-	fillMapWithDatabase(infileDataBase, mapDatabase);
-	compareMapWithInputFile(infile, mapDatabase);
-
+	try
+	{
+		fillMapWithDatabase(infileDataBase, mapDatabase);
+		compareMapWithInputFile(infile, mapDatabase);
+	}
+	catch (std::exception &d){
+		std::cout << "error\n";}
 	infileDataBase.close();
 	infile.close();
 }

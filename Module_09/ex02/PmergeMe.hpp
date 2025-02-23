@@ -6,7 +6,7 @@
 /*   By: schamizo <schamizo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 17:35:34 by schamizo          #+#    #+#             */
-/*   Updated: 2024/12/20 15:36:02 by schamizo         ###   ########.fr       */
+/*   Updated: 2025/02/23 16:14:24 by schamizo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@
 # include <iterator>
 # include <list>
 # include <deque>
+# include <limits>
 
 
 #endif
