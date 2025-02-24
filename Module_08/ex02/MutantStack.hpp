@@ -6,7 +6,7 @@
 /*   By: schamizo <schamizo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 15:51:44 by schamizo          #+#    #+#             */
-/*   Updated: 2025/02/20 15:33:52 by schamizo         ###   ########.fr       */
+/*   Updated: 2025/02/24 18:36:03 by schamizo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 template <typename T>
 class	MutantStack : public std::stack<T> {
 	private:
+
 	public:
 		MutantStack() {};
 		MutantStack(const MutantStack &other) : std::stack<T>(other) {};

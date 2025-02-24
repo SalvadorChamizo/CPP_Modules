@@ -6,13 +6,11 @@
 /*   By: schamizo <schamizo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 16:40:11 by schamizo          #+#    #+#             */
-/*   Updated: 2024/12/10 18:01:42 by schamizo         ###   ########.fr       */
+/*   Updated: 2025/02/24 19:43:29 by schamizo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "MutantStack.hpp"
-#include <list>
-#include <vector>
 
 void	mainWithVector(void)
 {
