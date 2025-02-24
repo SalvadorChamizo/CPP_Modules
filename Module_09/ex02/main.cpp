@@ -6,7 +6,7 @@
 /*   By: schamizo <schamizo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 16:07:48 by schamizo          #+#    #+#             */
-/*   Updated: 2025/02/23 17:27:11 by schamizo         ###   ########.fr       */
+/*   Updated: 2025/02/24 18:48:26 by schamizo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -274,6 +274,8 @@ int	main(int argc, char **argv)
 	{
 		for (int i = 1; i < argc; i++)
 		{
+			if (!argv[i][0])
+				throw std::invalid_argument("Invalid input.\n");
 			for (int j = 0; argv[i][j] != '\0'; j++)
 			{
 				if (!isdigit(argv[i][j]) && argv[i][j] != '+' && argv[i][j] != '-')
