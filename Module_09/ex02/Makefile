@@ -6,7 +6,6 @@ FLAGS = -g -Wall -Werror -Wextra
 CPP98_FLAG = -std=c++98
 
 FILES = main \
-		PmergeMe \
 
 SRCS_DIR = 
 OBJS_DIR = 

@@ -6,7 +6,7 @@
 /*   By: schamizo <schamizo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 13:56:16 by schamizo          #+#    #+#             */
-/*   Updated: 2025/01/07 14:16:39 by schamizo         ###   ########.fr       */
+/*   Updated: 2025/02/25 16:54:27 by schamizo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,5 +18,8 @@
 # include <sstream>
 # include <stack>
 # include <cstdlib>
+
+void	makeCalc(std::stack<int> &stack, std::string value);
+void	parseExpression(std::string line);
 
 #endif

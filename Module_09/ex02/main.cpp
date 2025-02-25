@@ -6,18 +6,13 @@
 /*   By: schamizo <schamizo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 16:07:48 by schamizo          #+#    #+#             */
-/*   Updated: 2025/02/24 18:48:26 by schamizo         ###   ########.fr       */
+/*   Updated: 2025/02/25 17:15:42 by schamizo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PmergeMe.hpp"
-#include <sstream>
-#include <string>
-#include <sys/time.h>
-#include <cstdlib>
-#include <iterator>
-#include <list>
-#include <deque>
+
+/* Step 3: This function recursively sort the larger elements from each pair. Ex: (8, 4), (5, 3), (6, 2) -> (5, 3), (6, 2), (8, 4) */
 
 void	recursivePairsSort(std::vector<std::pair<int, int> > &pairs, int n)
 {
@@ -36,6 +31,8 @@ void	recursivePairsSort(std::vector<std::pair<int, int> > &pairs, int n)
 	}
 	pairs[j + 1] = last;
 }
+
+/* Step 5: Generate the order of insertion using the jacobsthal sequence */
 
 static size_t	jacobsthal(size_t n)
 {
@@ -69,7 +66,7 @@ Container	generateJacobsthalSequence(Container &cont)
 		sequence.push_back(1);
 		return (sequence);
 	}
-	while ((currentValue = jacobsthal(jacobIndex)) < cont.size())
+	while ((currentValue = jacobsthal(jacobIndex)) <= cont.size())
 	{
 		sequence.push_back(currentValue);
 		++jacobIndex;
@@ -145,6 +142,8 @@ Container generateIndexInsertionList(Container &js_lst, Container &pend)
 	}
 	return (final_sequence);
 }
+
+/* Step 6: Insert the elements of the pend into the main chain using binary search to determine the position of each element */
 
 template <typename Container>
 void insertUsingBinarySearch(Container& mainChain, const Container& indexList, const Container& numbersToInsert)
