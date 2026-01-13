@@ -1,0 +1,45 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   RobotomyRequestForm.hpp                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: schamizo <schamizo@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/12/04 15:35:23 by schamizo          #+#    #+#             */
+/*   Updated: 2025/01/07 14:42:52 by schamizo         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#ifndef ROBOTOMYREQUESTFORM_HPP
+# define ROBOTOMYREQUESTFORM_HPP
+
+# include <iostream>
+# include <string>
+# include <cstdlib>
+# include <ctime>
+# include "AForm.hpp"
+
+class	RobotomyRequestForm : public AForm {
+
+	private:
+		const std::string	_target;
+		static const int	_gradeSign = 72;
+		static const int	_gradeExecute = 45;
+
+	public:
+		RobotomyRequestForm();
+		RobotomyRequestForm(std::string target);
+		RobotomyRequestForm(const RobotomyRequestForm &other);
+		~RobotomyRequestForm();
+
+		RobotomyRequestForm	&operator=(const RobotomyRequestForm &other);
+
+		std::string		getTarget(void) const;
+
+		void			beExecuted(void) const;
+
+		static int const	gradeSign = 72;
+		static int const	gradeExecute = 45;
+};
+
+#endif
